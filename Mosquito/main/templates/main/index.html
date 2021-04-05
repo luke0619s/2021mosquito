@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCwKiXu5rYQjw2iIkFBgSQD28z-H9n-tQ"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>登革熱病媒蚊監測網</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/icon-font.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.png' %}">
+         <style>
+        	#mapCanvas{
+            	width: 150%;
+            	height: 600px;
+        	}
+    	</style>
+        
+    </head>
+    <body>
+
+        <div class="navigation">
+            <input type="checkbox" class="navigation_checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation_button">
+                <span class="navigation_icon">
+                    &nbsp;
+                </span>
+            </label>
+
+            <div class="navigation_background">&nbsp;</div>
+                <nav class="navigation_nav">
+                    <ul class="navigation_list">
+                        <li class="navigation_item"><a href="#" class="navigation_link"><span>01</span>About Natours</a></li>
+                        <li class="navigation_item"><a href="#" class="navigation_link"><span>02</span>Your benfits</a></li>
+                        <li class="navigation_item"><a href="#" class="navigation_link"><span>03</span>Popular tours</a></li>
+                        <li class="navigation_item"><a href="#" class="navigation_link"><span>04</span>Stories</a></li>
+                        <li class="navigation_item"><a href="#" class="navigation_link"><span>05</span>Book now</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        <header class="header">
+            <div class="header-logo-box">
+                <div class="header-logo">
+                    <img src="{% static 'main/img/logo-white.png' %}" alt="error" class="header-logo">
+                </div>
+            </div>
+
+            <div class="header-text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary-main">登革熱病媒蚊監測系統</span>
+                    <span class="heading-primary-sub">Auto monitor photo, no more mosquito</span>
+                </h1>
+
+                <a href="#section-tours" class="btn btn-white btn-animated">探索本網站</a>
+            </div>
+        </header>
+        
+        <main>
+            <section class="section-about">
+                <div class="u-center-text u-margin-bottom-big">
+                    <h2 class="heading-secondary">
+                        登革熱病媒蚊監測系統特色
+                    </h2>
+                </div>
+                
+                <div class="row">
+                    <div class="col-1-of-2">
+
+                        <h3 class="heading-tertiary u-margin-bottom-small">對臺灣的嚴重性</h3>   
+                        <p class="paragraph">
+                            登革熱在2014年.2015年在臺灣造成了15492例及43419例的確診病例後，我們不得不再次面對這嚴峻的全球議題。與新冠肺炎一樣皆為傳染病，不同的是至今為止，登革熱仍沒有特效藥物可治療，僅能依靠支持性療法。因此在藥物尚未問世前，登革熱的預防顯得格外重要，除了加強宣導「巡、倒、清、刷」的觀念及徹底落實積水容器清除以杜絕形成孳生源…等之外，透過軟硬體應用對登革熱病媒蚊進行監測、分析，在登革熱預防上能發揮出莫大的防疫成效。
+                        </p>
+
+                        <a href="#" class="btn-text">瞭解更多 &rarr;</a>
+                    </div>
+                    <div class="col-1-of-2">
+                        <div class="composition">
+                            <img src="{% static 'main/img/nat-1-large.jpg' %}" alt="photo1" class="composition__photo composition__photo--p1">
+                            <img src="{% static 'main/img/nat-2-large.jpg' %}" alt="Photo2" class="composition__photo composition__photo--p2">
+                            <img src="{% static 'main/img/nat-3-large.jpg' %}" alt="Photo3" class="composition__photo composition__photo--p3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-features">
+
+                <div class="row">
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box_icon icon-basic-world"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">偵測辨識</h3>
+                            <p class="feature-box_text">
+                                使用深度學習自動辨識
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box_icon icon-basic-compass"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">研究分析</h3>
+                            <p class="feature-box_text">
+                                研究數據之間的關聯
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box_icon icon-basic-map"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">收集資訊</h3>
+                            <p class="feature-box_text">
+                                使用單晶片及模組(樹梅派、溫濕度、感光模組)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box_icon icon-basic-heart"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">預防警示</h3>
+                            <p class="feature-box_text">
+                                即時做出預防和處理
+                            </p>
+                        </div>
+                    </div>
+                </div>          
+            </section>
+
+            <section class="section-tours" id="section-tours">
+                <div class="u-center-text u-margin-bottom-big">
+                    <h2 class="heading-secondary">
+                        登革熱病媒蚊地圖
+                    </h2>
+                </div>
+                
+                  <div id="mapCanvas"></div>
+
+                <div class="u-center-text u-margin-top-huge">
+                    <a href="#" class="btn btn-green">探索更多</a>
+                </div>
+            </section>
+
+            <section class="section-book">
+                <div class="row">
+                    <div class="book">
+                        <div class="book_form">
+                            <div class="u-center-text u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    聯絡我們
+                                </h2>
+                            </div>
+
+                            <form action="#" class="form">
+                                <div class="form_group">
+                                    <input type="text" id="name" class="form_input" placeholder="全名" required>
+                                    <label for="name" class="form_label">全名</label>
+                                </div>
+                                <div class="form_group">
+                                    <input type="email" id="email" class="form_input" placeholder="電子信箱" required>
+                                    <label for="email" class="form_label">電子信箱</label>
+                                </div>
+
+                                <div class="form_group">
+                                    <div class="form_radio-group">
+                                        <input type="radio" class="form_radio-input" id="small" name="size">
+                                        <label for="small" class="form_radio-label">
+                                            <span class="form_radio-button"></span>
+                                            重置
+                                        </label>
+                                    </div>
+                                    <div class="form_radio-group">
+                                        <input type="radio" class="form_radio-input" id="large" name="size">
+                                        <label for="large" class="form_radio-label">
+                                            <span class="form_radio-button"></span>
+                                            忘記密碼
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form_group">
+                                        <button class="btn btn-green">送出 &rarr;</button>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer_logo-box">
+                <img src="{% static 'main/img/logo-green-2x.png' %}" alt="Full logo" class="footer_logo">
+            </div>
+            <div class="row">
+                <div class="col-1-of-2">
+                    <div class="footer_navigation">
+                        <ul class="footer_list">
+                            <li class="footer_item"><a href="#" class="footer_link">Company</a></li>
+                            <li class="footer_item"><a href="#" class="footer_link">Contact us</a></li>
+                            <li class="footer_item"><a href="#" class="footer_link">Careers</a></li>
+                            <li class="footer_item"><a href="#" class="footer_link">Privacy policy</a></li>
+                            <li class="footer_item"><a href="#" class="footer_link">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-2">
+                    <p class="footer_copyright">
+                        Built my <a href="#" class="footer_link">Luke</a> for his online Website <a href="#" class="footer_link">Advanced Css and Sass</a>. Copyright &copy; by jonas schme you are100% allowed to use this webpage for both personal and commercial use.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <div class="popup" id="popup">
+            <div class="popup_content">
+                <div class="popup_left">
+                    <img src="{% static 'main/img/nat-8.jpg' %}" alt="Tour photo" class="popup_img">
+                    <img src="{% static 'main/img/nat-9.jpg' %}" alt="Tour photo" class="popup_img">
+                </div>
+                <div class="popup_right">
+                    <a href="#section-tours" class="popup_close">&times;</a>
+                    <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+                    <p class="popup_text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatum dolorem itaque ratione voluptatibus tempora, ex inventore alias facere veniam porro obcaecati perspiciatis ea reprehenderit totam. Vel voluptas magnam voluptate
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatum dolorem itaque ratione voluptatibus tempora, ex inventore alias facere veniam porro obcaecati perspiciatis ea reprehenderit totam. Vel voluptas magnam voluptate..
+                    </p>
+                    <a href="#" class="btn btn-green">Book now!</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        function initMap() {
+            var map;
+            var bounds = new google.maps.LatLngBounds();
+            var mapOptions = {
+                mapTypeId: 'roadmap'
+            };
+
+            // Display a map on the web page
+            map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+            map.setTilt(100);
+
+            // Multiple markers location, latitude, and longitude
+            //  [name,latitude,longitude,icon(照片位置)]
+            var markers = ['輔仁大學',25.038295,121.431848,'/static/main/img/mosquito.png'];
+
+            // Info window content
+            //  [<div class="info_content'>name, temperature, info</div>]
+            var infoWindowContent = [
+                "輔仁大學 斑蚊5 家蚊20 溫度:20度  濕度:70</a>"
+            ];
+
+            // Add multiple markers to map
+            var infoWindow = new google.maps.InfoWindow(),
+                marker, i;
+
+            // Place each marker on the map  
+            for (i = 0; i < 1; i++) {
+                var position = new google.maps.LatLng(markers[1], markers[2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    icon: markers[3],
+                    title: markers[0]
+                });
+
+                // Add info window to marker    
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(infoWindowContent[0]);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                // Center the map to fit all markers on the screen
+                map.fitBounds(bounds);
+            }
+
+            // Set zoom level
+            var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                this.setZoom(14);
+                google.maps.event.removeListener(boundsListener);
+            });
+        }
+
+        // Load initialize function
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+    </body>
+</html>
