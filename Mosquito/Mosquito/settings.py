@@ -26,6 +26,7 @@ SECRET_KEY = '-^d)f1o$$mp$erfam&-f374hwko^-((g7nanlqnb)(=e!e$m#!'
 DEBUG = True
 if 'DYNO' in os.environ:
     DEBUG = False
+    
 ALLOWED_HOSTS = ['*']
 
 
