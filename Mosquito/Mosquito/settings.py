@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'Mosquito.wsgi.application'
 if DEBUG:
     DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mosquito',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': 'localhost',
-        'PORT': '3306',
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mosquito',
+            'USER': 'root',
+            'PASSWORD': 'mysql',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
     }
-}
 else: 
     import dj_database_url
     DATABASES = {'default':dj_database_url.config()}
@@ -128,4 +128,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'staticfiles'
