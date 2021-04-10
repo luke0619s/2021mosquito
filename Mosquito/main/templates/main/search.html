@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% block title %}登革熱病媒蚊監測網-歷史資料查詢{% endblock %}
+{% block content %}
+{% load static %}
+<section class="section-book">
+                <div class="row">
+                    <div class="book">
+                        <div class="book_form">
+                            <div class="u-center-text u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    
+                                </h2>
+                            </div>
+
+                            <form action="." method="GET" class="form">
+                                <div class="form_group">
+                                	<input name="name" type="text" id="name">
+                                </div>
+                                <div class="form_group">
+                                	<input name="year" type="text" id="year">
+                                </div>
+                                <div class="form_group">
+                                	<input name="month" type="text" id="month">
+                                </div>
+                                <div class="form_group">
+                                	<input name="day" type="text" id="day">
+                                </div>
+
+                                <div class="form_group">
+                                		<input type="submit" class="btn btn-green">
+                                </div>
+
+                            </form>
+                      		{% for r in result %}
+                      		測站名稱:{{ r.name }}
+                      		測站年份:{{ r.year }}
+                      		測站月份:{{ r.month }}
+                      		測站日期:{{ r.day }}
+                      		{% endfor %} 
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

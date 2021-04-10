@@ -20,16 +20,6 @@ def base(request):
 
 def search(request): 
     
-    def bar_base7() -> Bar:
-        c = (
-            Bar()
-            .add_xaxis(["2015", "2016", "2017", "2018", "2019", "2020"])
-            .add_yaxis("永春監測站(溫度)", [11,45,77,56,22,41])
-            .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
-            .dump_options_with_quotes()
-            )
-        return c
-    
     try:
         name  = request.GET['name']
         year  = request.GET['year']
@@ -143,10 +133,7 @@ class ChartView5(APIView):
         return JsonResponse(json.loads(bar_base5()))
 class ChartView6(APIView):
     def get(self, request, *args, **kwargs):
-        return JsonResponse(json.loads(bar_base6()))
-class ChartView7(APIView):
-    def get(self, request, *args, **kwargs):
-        return JsonResponse(json.loads(bar_base7()))    
+        return JsonResponse(json.loads(bar_base6()))  
 
 class data(APIView):
     def get(self, request, *args, **kwargs):
