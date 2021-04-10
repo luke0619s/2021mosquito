@@ -529,7 +529,7 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpeg);
+  background-image: linear-gradient(to right bottom, rgba(100, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpeg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -548,6 +548,7 @@ body {
     text-align: center; }
 
 .footer {
+  text-align:center;
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem;
@@ -723,6 +724,10 @@ body {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
 
+.section-data {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);} 
+
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: cover;
@@ -733,8 +738,35 @@ body {
     width: 50%;
     padding: 6rem; }
 
+.rowl {
+  max-width: 150rem;
+  margin: 0 auto; }
+  .rowl:not(:last-child) {
+    margin-bottom: 8rem; }
+  .rowl::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .rowl [class^="col-"] {
+    float: left; }
+    .rowl [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .rowl .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .rowl .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .rowl .col-2-of-3 {
+    width: calc(2 * (100% - 2 * 6rem) / 3 + 6rem); }
+  .rowl .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .rowl .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) /4) + 6rem); }
+  .rowl .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) /4) + 2 * 6rem); }
+
+
 .row {
-  max-width: 114rem;
+  max-width: 116rem;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
