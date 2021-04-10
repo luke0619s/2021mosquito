@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 import json
-from pyecharts.charts import Bar
 from pyecharts import options as opts
+from pyecharts.charts import Bar
 from rest_framework.views import APIView
 from django.template.context_processors import request
 from main import models
