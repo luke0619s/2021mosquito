@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+import sys
+from urllib.parse import urlparse
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,10 +80,10 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'mosquito',
-            'USER': 'root',
-            'PASSWORD': 'mysql',
-            'HOST': 'localhost',
+            'NAME': 'heroku_9866a24cce918f5',
+            'USER': 'b95723b12bea7f',
+            'PASSWORD': 'ea57f07c',
+            'HOST': 'us-cdbr-east-03.cleardb.com',
             'PORT': '3306',
         }
     }
@@ -90,7 +91,6 @@ else:
     import dj_database_url
     DATABASES = {'default':dj_database_url.config()}
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
