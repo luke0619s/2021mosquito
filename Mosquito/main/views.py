@@ -8,6 +8,8 @@ from rest_framework.views import APIView
 from django.template.context_processors import request
 from main import models
 
+def test(request):
+    return render(request, 'main/test.html', locals())
 
 def main(request):
     return render(request, 'main/index.html', locals())
