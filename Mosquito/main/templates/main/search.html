@@ -8,35 +8,47 @@
                         <div class="book_form">
                             <div class="u-center-text u-margin-bottom-medium">
                                 <h2 class="heading-secondary">
-                                    
+                                    登革熱確診病例及天氣資料查詢
                                 </h2>
                             </div>
 
-                            <form action="." method="GET" class="form">
+                            <form action="POST" class="form">
                                 <div class="form_group">
-                                	<input name="name" type="text" id="name">
+								<select name="pets" class="form_input">
+    							<option value="" selected>請選擇監測站</option>
+    							<option value="">台南</option>
+    							<option value="">台中</option>
+    							<option value="">桃園</option>
+    							<option value="">臺北</option>
+    							<option value="">新竹</option>
+								</select>
                                 </div>
+                                
+                               
                                 <div class="form_group">
-                                	<input name="year" type="text" id="year">
+                                    <select name="pets" class="form_input">
+                                    <option value="">請選擇年份</option>
+                                    {% for a in num1 %}
+                                    <option value="">{{ a }}</option>
+                                    {% endfor %}
+                                    </select>
                                 </div>
+                                
                                 <div class="form_group">
-                                	<input name="month" type="text" id="month">
+                                    <select name="pets" class="form_input">
+                                    <option value="">請選擇月份</option>
+                                    {% for x in num2 %}
+                                    <option value="">{{ x }}</option>
+                                    {% endfor %}
+                                    </select>
                                 </div>
-                                <div class="form_group">
-                                	<input name="day" type="text" id="day">
-                                </div>
-
-                                <div class="form_group">
-                                		<input type="submit" class="btn btn-green">
-                                </div>
-
+                                
+                                
+                                	<div class="form_group">
+                                        <a class="btn btn-green" href="{% url 'main:data' %}">送出 &rarr;</a>
+                                	</div>
+                              </div>
                             </form>
-                      		{% for r in result %}
-                      		測站名稱:{{ r.name }}
-                      		測站年份:{{ r.year }}
-                      		測站月份:{{ r.month }}
-                      		測站日期:{{ r.day }}
-                      		{% endfor %} 
                         </div>
                     </div>
                 </div>

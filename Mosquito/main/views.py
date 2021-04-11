@@ -9,7 +9,6 @@ from django.template.context_processors import request
 from main import models
 
 def main(request):
-    test = models.local.objects.all()
     return render(request, 'main/index.html', locals())
 
 def maps(request):
@@ -19,7 +18,9 @@ def base(request):
     return render(request, 'main/base.html', locals())
 
 def search(request): 
-    
+    num1 = range(1960,2021)
+    num2 = range(1,13)
+    num3 = range(1,32)
     try:
         name  = request.GET['name']
         year  = request.GET['year']
@@ -63,54 +64,54 @@ JsonError = json_error
 def bar_base() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2014", "2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("臺北監測站(溫度)", [30,25,27,36,32,41])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("溫度", [30,25,27,29,32,30,31,28,27,25,26,28,30,31,33,29,27,28,30,33,32,31,30,28,29,28,30,33,32,28,30,26,27,31,35,34,30])
+        .set_global_opts(title_opts=opts.TitleOpts(title="°C"))
         .dump_options_with_quotes()
     )
     return c
 def bar_base2() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2015", "2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("新莊監測站(溫度)", [30,25,27,36,32,41])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("濕度", [28,23,25,27,30,28,29,27,25,23,24,26,28,29,25,27,24,26,24,28,30,29,27,28,26,25,30,24,27,28,30,26,27,25,24,23,27])
+        .set_global_opts(title_opts=opts.TitleOpts(title="m3"))
         .dump_options_with_quotes()
     )
     return c
 def bar_base3() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2015", "2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("南港監測站(溫度)", [30,25,27,36,32,41])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("SO2", [1.2,1.3,1.6,1.6,1.9,2.4,2.3,1.8,1.9,2.2,1.5,1.4,1.6,1.8,2.3,2.4,2.1,1.8,1.9,2.2,1.8,1.4,1.6,1.8,2.3,2.4,2.0,1.8,1.9,1.6  ])
+        .set_global_opts(title_opts=opts.TitleOpts(title="ppb"))
         .dump_options_with_quotes()
     )
     return c
 def bar_base4() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2015", "2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("中山監測站(溫度)", [22,23,21,45,38,66])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("PM2.5", [66,68,69,70,67,66,66,67,68,70,73,75,76,75,76,78,80,82,83,85,87,89,90,91,95,94,97,100,103,105,103,106,108,110,118,120,120])
+        .set_global_opts(title_opts=opts.TitleOpts(title="μg/m3"))
         .dump_options_with_quotes()
     )
     return c
 def bar_base5() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("信義監測站(溫度)", [77,55,67,56,52,21])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("O3", [240,243,245,239,238,240,243,245,248,250,248,249,248,245,244,240,238,237,235,236,236,237,238,238,239,240,241,242,241,242,245,243,240,239,245,243,241])
+        .set_global_opts(title_opts=opts.TitleOpts(title="ppb"))
         .dump_options_with_quotes()
     )
     return c
 def bar_base6() -> Bar:
     c = (
         Bar()
-        .add_xaxis(["2015", "2016", "2017", "2018", "2019", "2020"])
-        .add_yaxis("永春監測站(溫度)", [11,45,77,56,22,41])
-        .set_global_opts(title_opts=opts.TitleOpts(title="測試", subtitle="測試副標題"))
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("本土及境外確診病例", [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1])
+        .set_global_opts(title_opts=opts.TitleOpts(title="例"))
         .dump_options_with_quotes()
     )
     return c

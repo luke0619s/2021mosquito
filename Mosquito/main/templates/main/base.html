@@ -13,8 +13,8 @@
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
          <style>
         	#mapCanvas{
-            	width: 150%;
-            	height: 600px;
+            	width: 100%;
+            	height: 700px;
         	}
     	</style>
     </head>
@@ -40,7 +40,7 @@
            </div>
    	<!--Content-->
     {% block content %}
-                     <section class="section-tours" id="section-tours">
+                     <section class="section-maps" id="section-tours">
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
                         登革熱病媒蚊地圖
@@ -89,11 +89,12 @@
             // Multiple markers location, latitude, and longitude
             //  [name,latitude,longitude,icon(照片位置)]
             var markers = ['輔仁大學',25.038295,121.431848,'/static/main/img/mosquito.png'];
-
+            	
+            
             // Info window content
             //  [<div class="info_content'>name, temperature, info</div>]
             var infoWindowContent = [
-                "輔仁大學 斑蚊5 家蚊20 溫度:20度  濕度:70</a>"
+                "輔仁大學 斑蚊5 家蚊20 溫度:20度  濕度:70<a href='{% url 'main:data' %}'>了解更多</a>"
             ];
 
             // Add multiple markers to map

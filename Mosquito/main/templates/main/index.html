@@ -32,22 +32,50 @@
                 <div class="row">
                     <div class="col-1-of-2">
 
-                        <h3 class="heading-tertiary u-margin-bottom-small">對臺灣的嚴重性</h3>   
+                        <h3 class="heading-tertiary u-margin-bottom-small">即時偵測</h3>   
                         <p class="paragraph">
-                            登革熱在2014年.2015年在臺灣造成了15492例及43419例的確診病例後，我們不得不再次面對這嚴峻的全球議題。與新冠肺炎一樣皆為傳染病，不同的是至今為止，登革熱仍沒有特效藥物可治療，僅能依靠支持性療法。因此在藥物尚未問世前，登革熱的預防顯得格外重要，除了加強宣導「巡、倒、清、刷」的觀念及徹底落實積水容器清除以杜絕形成孳生源…等之外，透過軟硬體應用對登革熱病媒蚊進行監測、分析，在登革熱預防上能發揮出莫大的防疫成效。
+								利用樹莓派的鏡頭及感測器，捕蚊裝置得以搜集其周圍環境的Co2.O3.PM2.5.溫度等數據以及在捕蚊燈中的蚊子照，透過裝置上的WIFI模組將數據傳到遠端的主機資料庫中.
                         </p>
-						<p>
-						{% for t in test %}
-						{{ t.name }}{{ t.year }}{{ t.month }}{{ t.day }}
-						{% endfor %} 
-						</p>
                         <a href="#" class="btn-text">瞭解更多 &rarr;</a>
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="{% static 'main/img/nat-1-large.jpg' %}" alt="photo1" class="composition__photo composition__photo--p1">
-                            <img src="{% static 'main/img/nat-2-large.jpg' %}" alt="Photo2" class="composition__photo composition__photo--p2">
-                            <img src="{% static 'main/img/nat-3-large.jpg' %}" alt="Photo3" class="composition__photo composition__photo--p3">
+                            <img src="{% static 'main/img/train.PNG' %}" alt="photo1" class="composition__photo composition__photo--p1">
+                            <img src="{% static 'main/img/train4.PNG' %}" alt="Photo2" class="composition__photo composition__photo--p2">
+                        </div>
+                    </div>
+                </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col-1-of-2">
+
+                        <h3 class="heading-tertiary u-margin-bottom-small">資料檢索</h3>   
+                        <p class="paragraph">
+								利用地點、年份、月份等進行歷史資料、觀測站的資料搜尋，回傳的結果以圖表化作為網頁的呈現
+                        </p>
+                        <a href="#" class="btn-text">瞭解更多 &rarr;</a>
+                    </div>
+                    <div class="col-1-of-2">
+                        <div class="composition">
+                            <img src="{% static 'main/img/train2.PNG' %}" alt="Photo2" class="composition__photo composition__photo--p4">
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-1-of-2">
+
+                        <h3 class="heading-tertiary u-margin-bottom-small">預防通報</h3>   
+                        <p class="paragraph">
+								樹莓派蒐集到的數據會定時被樹莓派內部的一支監測程式監測，若數據達到危險標準時，這支程式會將危險訊息發送到政府、衛生機構等單位，達到預測及預防的效果
+                        </p>
+                        <a href="#" class="btn-text">瞭解更多 &rarr;</a>
+                    </div>
+                    <div class="col-1-of-2">
+                        <div class="composition">
+                            <img src="{% static 'main/img/train.PNG' %}" alt="photo1" class="composition__photo composition__photo--p5">
                         </div>
                     </div>
                 </div>
