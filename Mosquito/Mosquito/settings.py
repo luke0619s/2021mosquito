@@ -71,7 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Mosquito.wsgi.application'
-
+import sys
+from urllib import parse
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -91,6 +92,34 @@ else:
     DATABASES = {'default':dj_database_url.config()}
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+try:
+
+    # Check to make sure DATABASES is set in settings.py file.
+    # If not default to {}
+
+    if 'DATABASES' not in locals():
+        DATABASES = {}
+
+    if 'DATABASE_URL' in os.environ:
+        url = parse.urlparse(os.environ['DATABASE_URL'])
+
+        # Ensure default database exists.
+        DATABASES['default'] = DATABASES.get('default', {})
+
+        # Update with environment configuration.
+        DATABASES['default'].update({
+            'NAME': url.path[1:],
+            'USER': url.username,
+            'PASSWORD': url.password,
+            'HOST': url.hostname,
+            'PORT': url.port,
+        })
+
+
+        if url.scheme == 'mysql':
+            DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+except Exception:
+    print ('Unexpected error:',sys.exc_info())
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
