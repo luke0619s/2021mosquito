@@ -15,6 +15,7 @@ def maps(request):
     return render(request, 'main/map.html', locals())
 
 def base(request):
+    data = models.detection.objects.all()
     return render(request, 'main/base.html', locals())
 
 def search(request): 
@@ -116,6 +117,61 @@ def bar_base6() -> Bar:
     )
     return c
 
+def bar_base7() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("溫度", [8,9,10,11,12,13,14,15,16,17,18,19,20,19,16,17,15,16,14,13,11,12,10,9,8,9,11,13,14,15,17,18,19,20,19,21,11])
+        .set_global_opts(title_opts=opts.TitleOpts(title="°C"))
+        .dump_options_with_quotes()
+    )
+    return c
+def bar_base8() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("濕度", [27,25,24,23,22,21,20,19,21,20,18,19,14,26,23,22,21,20,19,25,24,22,21,23,22,24,24,23,23,24,25,26,28,29,24,22])
+        .set_global_opts(title_opts=opts.TitleOpts(title="m3"))
+        .dump_options_with_quotes()
+    )
+    return c
+def bar_base9() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("SO2", [1,2,1,3,2,1,2,1,3,1,1,1,1,1,1,1,2,1,2,2,2,1,2,2,1,2,1,1,3,1,1,1,2,1,2,1,1])
+        .set_global_opts(title_opts=opts.TitleOpts(title="ppb"))
+        .dump_options_with_quotes()
+    )
+    return c
+def bar_base10() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("PM2.5", [66,67,65,64,63,65,64,66,65,64,63,62,61,65,64,62,61,65,64,62,63,61,60,61,61,62,63,62,62,61,60,65,64,62,61,62,61])
+        .set_global_opts(title_opts=opts.TitleOpts(title="μg/m3"))
+        .dump_options_with_quotes()
+    )
+    return c
+def bar_base11() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("O3", [240,246,243,241,250,248,247,246,245,244,243,242,241,240,239,240,240,240,240,239,241,242,243,244,245,245,245,245,246,247,247,248,249,250,250,250,250])
+        .set_global_opts(title_opts=opts.TitleOpts(title="ppb"))
+        .dump_options_with_quotes()
+    )
+    return c
+def bar_base12() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["1", "2", "3", "4", "5", "6", "7", "8" ,"9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22", "23", "24","25", "26", "27","28", "29", "30"])
+        .add_yaxis("RH", [90,94,63,59,90,73,71,85,83,78,83,88,82,87,80,83,83,86,91,95,94,95,95,90,73,85,95,94,92,94,95,85,83,87,86,84,86])
+        .set_global_opts(title_opts=opts.TitleOpts(title="%"))
+        .dump_options_with_quotes()
+    )
+    return c
+
 class ChartView(APIView):
     def get(self, request, *args, **kwargs):
         return JsonResponse(json.loads(bar_base()))
@@ -135,7 +191,40 @@ class ChartView5(APIView):
 class ChartView6(APIView):
     def get(self, request, *args, **kwargs):
         return JsonResponse(json.loads(bar_base6()))  
+    
+class ChartView7(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base7())) 
 
+class ChartView8(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base8()))  
+
+class ChartView9(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base9()))
+
+class ChartView10(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base10()))  
+
+class ChartView11(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base11()))     
+    
+class ChartView12(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(bar_base12()))  
+    
 class data(APIView):
     def get(self, request, *args, **kwargs):
         return render(request, 'main/data.html')
+class data2(APIView):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/data2.html')    
+class data3(APIView):
+    def get(self, request, *args, **kwargs):
+        num1 = range(2020,2021)
+        num2 = range(1,13)
+        num3 = range(1,32)
+        return render(request, 'main/data3.html', locals())    

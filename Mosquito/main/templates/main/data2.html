@@ -48,26 +48,57 @@
 </ul>
 <div class="container">
 <br><br><br>
-<h1 class="centers" >臺北監測站</h1>
-<h3>2015年5月</h3>
+<h1 class="centers" >輔仁大學監測站</h1><h2>時間 : 2021/3/20</h2>
+<div class="container row text-white">
+        <div class="col-12">
+            <table class="table table-bordered" id="luke4" >
+            <div  d-flex justify-content-center>
+                <tr><td>溫度</td><td>濕度</td><td>二氧化碳</td><td>PM2.5</td></tr>
+                <tr><td>25</td><td>40</td><td>30</td><td>15</td></tr>
+                <tr><td>臭氧</td><td>二氧化硫</td><td>病媒蚊數量</td><td>家蚊數量</td></tr>
+                <tr><td>21</td><td>14</td><td>35</td><td>14</td></tr>
+                </div>
+            </table>
+        </div>
+    </div>
+<div class='text-dark'>
+<div>
+        <label>年:</label>
+        <select class="form_group">
+        <option>請選擇年:</option>
+        <option>2019</option>
+        </select>
+        <label class='text-dark'>月:</label>
+        <select>
+        <option>請選擇月</option>
+        <option>12</option>
+        </select>
+        <label class='text-dark'>週:</label>
+        <select>
+        <option>請選擇週</option>
+        <option>1</option>
+        </select>
+        <button><a href="{% url 'main:data3' %}">送出</a></button>
+</div>
+</div>
 <div class='row'>
-  <div id="bar" class='col-4' style="width:300px; height:420px;"></div>
-  <div id="bar2" class='col-4' style="width:300px; height:420px;"></div>
-  <div id="bar3" class='col-4' style="width:300px; height:420px;"></div>
+  <div id="bar7" class='col-4' style="width:300px; height:420px;"></div>
+  <div id="bar8" class='col-4' style="width:300px; height:420px;"></div>
+  <div id="bar9" class='col-4' style="width:300px; height:420px;"></div>
 </div> 
  <div class='row'>
-  <div id="bar4" class='col-4'style="width:350px; height:450px;"></div>
-  <div id="bar5" class='col-4'style="width:350px; height:450px;"></div>
-  <div id="bar6" class='col-4'style="width:350px; height:450px;"></div>
+  <div id="bar10" class='col-4'style="width:350px; height:450px;"></div>
+  <div id="bar11" class='col-4'style="width:350px; height:450px;"></div>
+  <div id="bar12" class='col-4'style="width:350px; height:450px;"></div>
  </div>
  </div>
  <script>
-        var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
-        var chart2 = echarts.init(document.getElementById('bar2'), 'white', {renderer: 'canvas'});
-        var chart3 = echarts.init(document.getElementById('bar3'), 'white', {renderer: 'canvas'});
-        var chart4 = echarts.init(document.getElementById('bar4'), 'white', {renderer: 'canvas'});
-        var chart5 = echarts.init(document.getElementById('bar5'), 'white', {renderer: 'canvas'});
-        var chart6 = echarts.init(document.getElementById('bar6'), 'white', {renderer: 'canvas'});
+        var chart = echarts.init(document.getElementById('bar7'), 'white', {renderer: 'canvas'});
+        var chart2 = echarts.init(document.getElementById('bar8'), 'white', {renderer: 'canvas'});
+        var chart3 = echarts.init(document.getElementById('bar9'), 'white', {renderer: 'canvas'});
+        var chart4 = echarts.init(document.getElementById('bar10'), 'white', {renderer: 'canvas'});
+        var chart5 = echarts.init(document.getElementById('bar11'), 'white', {renderer: 'canvas'});
+        var chart6 = echarts.init(document.getElementById('bar12'), 'white', {renderer: 'canvas'});
  
         $(
             function () {
@@ -78,37 +109,37 @@
         function fetchData() {
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8000/main/bar/",
+                url: "http://127.0.0.1:8000/main/bar7/",
                 dataType: 'json',
                 success: function (result) {
                     chart.setOption(result.data);
                 $.ajax({
                         type: "GET",
-                        url: "http://127.0.0.1:8000/main/bar2/",
+                        url: "http://127.0.0.1:8000/main/bar8/",
                         dataType: 'json',
                         success: function (result) {
                             chart2.setOption(result.data);
                         $.ajax({
                                 type: "GET",
-                                url: "http://127.0.0.1:8000/main/bar3/",
+                                url: "http://127.0.0.1:8000/main/bar9/",
                                 dataType: 'json',
                                 success: function (result) {
                                     chart3.setOption(result.data);
                                     $.ajax({
                                         type: "GET",
-                                        url: "http://127.0.0.1:8000/main/bar4/",
+                                        url: "http://127.0.0.1:8000/main/bar10/",
                                         dataType: 'json',
                                         success: function (result) {
                                             chart4.setOption(result.data);
                                          $.ajax({
                                                 type: "GET",
-                                                url: "http://127.0.0.1:8000/main/bar5/",
+                                                url: "http://127.0.0.1:8000/main/bar11/",
                                                 dataType: 'json',
                                                 success: function (result) {
                                                     chart5.setOption(result.data);
                                                     $.ajax({
                                                         type: "GET",
-                                                        url: "http://127.0.0.1:8000/main/bar6/",
+                                                        url: "http://127.0.0.1:8000/main/bar12/",
                                                         dataType: 'json',
                                                         success: function (result) {
                                                             chart6.setOption(result.data);                                                          

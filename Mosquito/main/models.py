@@ -9,3 +9,8 @@ class local(models.Model):
     
     def __str__(self):
         return self.name
+    
+class detection(models.Model):
+    name = models.CharField(max_length=20, null=False)
+    lat = models.CharField(max_length=20, null=False)
+    lot = models.CharField(max_length=20, null=False)

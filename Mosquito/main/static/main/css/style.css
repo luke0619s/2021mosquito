@@ -712,10 +712,10 @@ body {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   background-size: cover;
-  transform: skewY(-7deg);
+  transform: skewY(0deg);
   margin-top: -11rem; }
   .section-features > * {
-    transform: skewY(7deg); }
+    transform: skewY(0deg); }
 .section-maps {
   background-color: #FFFFFF;
   padding: 25rem 0 15rem 0;

@@ -4,11 +4,6 @@
 {% load static %}
 
 <header class="header">
-            <div class="header-logo-box">
-                <div class="header-logo">
-                    <img src="{% static 'main/img/logo-white.png' %}" alt="error" class="header-logo">
-                </div>
-            </div>
 
             <div class="header-text-box">
                 <h1 class="heading-primary">
@@ -58,7 +53,7 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="{% static 'main/img/train2.PNG' %}" alt="Photo2" class="composition__photo composition__photo--p4">
+                            <img src="{% static 'main/img/visual2.png' %}" alt="Photo2" class="composition__photo composition__photo--p4">
                         </div>
                     </div>
                 </div>
@@ -127,51 +122,5 @@
             </section>
             <br>
             <br><br><br><br>
-	<!-- 聯絡我們 -->
-            <section class="section-book">
-                <div class="row">
-                    <div class="book">
-                        <div class="book_form">
-                            <div class="u-center-text u-margin-bottom-medium">
-                                <h2 class="heading-secondary">
-                                    聯絡我們
-                                </h2>
-                            </div>
-
-                            <form action="POST" class="form">
-                                <div class="form_group">
-                                    <input type="text" id="name" class="form_input" placeholder="全名" required>
-                                    <label for="name" class="form_label">全名</label>
-                                </div>
-                                <div class="form_group">
-                                    <input type="email" id="email" class="form_input" placeholder="電子信箱" required>
-                                    <label for="email" class="form_label">電子信箱</label>
-                                </div>
-
-                                <div class="form_group">
-                                    <div class="form_radio-group">
-                                        <input type="radio" class="form_radio-input" id="small" name="size">
-                                        <label for="small" class="form_radio-label">
-                                            <span class="form_radio-button"></span>
-                                            重置
-                                        </label>
-                                    </div>
-                                    <div class="form_radio-group">
-                                        <input type="radio" class="form_radio-input" id="large" name="size">
-                                        <label for="large" class="form_radio-label">
-                                            <span class="form_radio-button"></span>
-                                            忘記密碼
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form_group">
-                                        <button class="btn btn-green">送出 &rarr;</button>
-                                </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
 {% endblock %}
